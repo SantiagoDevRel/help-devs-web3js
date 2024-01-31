@@ -4,7 +4,7 @@ const abi = require("./abiJason.json");
 const web3 = new Web3("https://rpc2.sepolia.org");
 
 async function signAndSendTx() {
-  const privateKey = "YOUR PK";
+  const privateKey = "0x...";
   const myAccount = web3.eth.accounts.privateKeyToAccount(privateKey);
 
   const contractAddress = "0x21B5f741421B568580de67405E128B773418d87e";
@@ -18,8 +18,8 @@ async function signAndSendTx() {
     to: contractAddress,
     data: data,
     gas: (await web3.eth.estimateGas(tx)) * 2n, //updated depending on the network
-    maxFeePerGas: (await web3.eth.getBlock()).baseFeePerGas * 2n,
-    maxPriorityFeePerGas: 10_000,
+    maxFeePerGas: (await web3.eth.getBlock()).baseFeePerGas * 2n, //updated depending on the network
+    maxPriorityFeePerGas: 100_000, //high
   };
 
   const signatureObject = await myAccount.signTransaction(txObject);
