@@ -53,7 +53,20 @@ class Swtr extends Web3PluginBase {
     //return finalResult
   }
 
-  async otherRPCMethods() {}
+  async otherRPCMethods() {
+    web3.extend({
+      property: "L2Module",
+      methods: [
+        {
+          name: "getBlockReceipts",
+          call: "eth_getBlockReceipts",
+        },
+      ],
+    });
+
+    //usage
+    const receipts = await web3.L2Module.getBlockReceipts("latest"); //return all the receipts
+  }
 }
 
 module.exports = Swtr;
