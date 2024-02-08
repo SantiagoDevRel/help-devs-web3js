@@ -54,7 +54,7 @@ class Swtr extends Web3PluginBase {
   }
 
   async otherRPCMethods() {
-    web3.extend({
+    this.web3.extend({
       property: "L2Module",
       methods: [
         {
