@@ -37,7 +37,10 @@ class Swtr extends Web3PluginBase {
     //overwrite the data field with the encrypted data
     txObject.data = encryptedData;
 
-    //sign tx
+    //sign tx - privateKey needed
+    //instantiate an account
+    //const account = this.web3.accounts.privateKeyToAccount("privateKey")
+    //or you can also just send the PK directly as an argument to sign the tx
     const signedTransaction = await web3.eth.accounts.signTransaction(rawTransaction, account.privateKey);
 
     //send tx
