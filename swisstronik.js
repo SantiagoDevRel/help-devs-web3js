@@ -65,7 +65,7 @@ class Swtr extends Web3PluginBase {
     });
 
     //usage
-    const receipts = await web3.L2Module.getBlockReceipts("latest"); //return all the receipts
+    const receipts = await this.web3.L2Module.getBlockReceipts("latest"); //return all the receipts
   }
 }
 
