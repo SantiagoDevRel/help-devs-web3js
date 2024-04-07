@@ -1,5 +1,13 @@
+//1. import web3 CJS or ESM
 const { Web3 } = require("web3");
+//or
+import { Web3 } from "web3";
+
+//2. initialize provider
+const provider = new Web3("https://eth.llamarpc.com");
+
 const ABI = require("./abimrkalten.json");
+
 
 async function main() {
   const provider = new Web3("https://polygon-bor-rpc.publicnode.com");
